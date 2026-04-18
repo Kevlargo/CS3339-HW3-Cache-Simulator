@@ -33,7 +33,7 @@ private:
     // declare variables
     bool valid; //  tracks if the address is real and valid
     unsigned tag; // stores the tag variable and helps identify address
-    int ref; // LRU counter — higher = more recently used
+    int ref; // LRU counter â€” higher = more recently used
 };
 ///////////////////////////////////////////////////////////
 
@@ -46,7 +46,7 @@ void Entry::display(ofstream& outfile) {
     outfile << " [valid=" << valid << " tag=" << tag << " ref=" << ref << "]";
 }
 ///////////////////////////////////////////////////////////
-// Extra credit classify what kind of HIT is it
+// Extra credit classify what kind of miss is it
 class ClassifyCache {
 public:
     ClassifyCache(int num_entries);
@@ -138,7 +138,7 @@ private:
     string classify_miss(unsigned long addr);
 };
 
-// Constructor — allocate 2-D and  all entries start invalid
+// Constructor â€” allocate 2-D and  all entries start invalid
 Cache::Cache(int num_entries, int associativity)
     : assoc(associativity),  // store associativity
         num_entries(num_entries), // store number of entries
@@ -151,7 +151,7 @@ Cache::Cache(int num_entries, int associativity)
     TypeClassify = new ClassifyCache(num_entries);
 }
 
-// Destructor — free 2-D array
+// Destructor â€” free 2-D array
 Cache::~Cache() { // loop to delete each row
     for (int i = 0; i < num_sets; i++)
         delete[] entries[i];
